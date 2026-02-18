@@ -3,12 +3,14 @@
     internal class Program
     {
         // Angel 
-
         public static void Part1()
         {
+       
             string name;
             int age;
             double hourlyWage;
+
+            Console.Title = "Topic 4 - Assignment (User Input)";
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("What is your name? \nEnter here: ");
@@ -30,8 +32,11 @@
             Console.Write("So since you are so old, you must have a job! How much do you make hourly? \nEnter here: ");
             Double.TryParse(Console.ReadLine(), out hourlyWage);
             Console.WriteLine("Wow! You make " + hourlyWage.ToString("C") + " an hour! That's great cause I make ZERO!");
+        }
 
-
+        public static void Part2()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
 
         }
 
