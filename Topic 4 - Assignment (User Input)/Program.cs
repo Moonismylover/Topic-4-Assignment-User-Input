@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 namespace Topic_4___Assignment__User_Input_
 {
@@ -11,7 +12,7 @@ namespace Topic_4___Assignment__User_Input_
             int age;
             double hourlyWage;
 
-            Console.Title = "Topic 4 - Assignment (User Input)";
+            Console.Title = "Part 1 ~ Conversation";
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("What is your name? \nEnter here: ");
@@ -41,6 +42,8 @@ namespace Topic_4___Assignment__User_Input_
             string firstName, lastName, username;
             int grade, idNum;
             double grAverage;
+
+            Console.Title = "Part 2 ~ Student Information";
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("First name: ");
@@ -75,7 +78,7 @@ namespace Topic_4___Assignment__User_Input_
             // Output 
 
             Console.WriteLine(" ");
-            Console.WriteLine("Your information: \n\tLogin:\t\t" + username + "\n\tID:\t\t" + idNum + "\n\tName:\t\t" + lastName + ", " + firstName + "\n\tAverage:\th" + grAverage + "\n\tGrade:\t\t" + grade);
+            Console.WriteLine("\tYour information: \n\n\tLogin:\t\t" + username + "\n\tID:\t\t" + idNum + "\n\tName:\t\t" + lastName + ", " + firstName + "\n\tAverage:\t" + grAverage + "\n\tGrade:\t\t" + grade);
 
 
         }
@@ -85,7 +88,7 @@ namespace Topic_4___Assignment__User_Input_
             string name;
             int age, fiveAhead, fiveBehind;
 
-            Console.Title = "Topic 4 - Assignment (User Input)";
+            Console.Title = "Part 3 ~ Age Math";
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("Hello! What is your name? \nEnter here: ");
@@ -108,32 +111,115 @@ namespace Topic_4___Assignment__User_Input_
 
         public static void Part4()
         { 
-            string firstNum, secondNum, thirdNum;   
+            double firstNum, secondNum, thirdNum, ans;   
 
-            Console.Title = "Topic 4 - Assignment (User Input)";    
+            Console.Title = "Part 4 ~ Math Calculator";    
+
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Hey there! Give me three numbers.");
    
             Console.Write("First number: ");
             Console.ForegroundColor = ConsoleColor.Red;
-            firstNum = Console.ReadLine();
-
-            if (int.TryParse(firstNum, out int))
+            firstNum = Convert.ToDouble(Console.ReadLine());
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("Second number: ");   
             Console.ForegroundColor = ConsoleColor.Red; 
+            secondNum = Convert.ToDouble(Console.ReadLine());
 
             Console.ForegroundColor = ConsoleColor.Green;   
             Console.Write("Third number: ");
             Console.ForegroundColor = ConsoleColor.Red;
+            thirdNum = Convert.ToDouble(Console.ReadLine());
 
+            ans = (firstNum + secondNum + thirdNum) / 2;
+
+            Console.WriteLine(" ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Did you know if you take the sum of {firstNum}, {secondNum}, and {thirdNum}, and then divide it by 2, the answer would be {ans}!?"); 
+        }
+
+        public static void Part5()
+        {
+            string item1, item2;
+            double price1, price2, total, discount, alteredTotal, taxAmount, finalPrice;
+
+            Console.Title = "Part 5 ~ Shopping";
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Hey there! Welcome to the SUPERNOVA store!");
+            Console.WriteLine("Please enter the name and price of your items!");
+            Console.WriteLine(" ");
+
+            Console.Write("Item 1 name: ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            item1 = Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(item1 + " price: ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            price1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine(" ");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("Item 2 name: ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            item2 = Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(item2 + " price: ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            price2 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine(" ");
+
+            total = price1 + price2;
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Congrats! You get a special discount of 20%!");
+            Console.WriteLine(" ");
+
+            discount = total * 0.2;
+            alteredTotal = total - discount;
+            taxAmount = alteredTotal * 0.13;
+            finalPrice = alteredTotal + taxAmount;
+
+            Console.WriteLine("\tSales Receipt");
+            Console.WriteLine(" ");
+            Console.WriteLine("\tItem 1: " + item1 + "\n\tPrice: " + price1.ToString("C"));
+            Console.WriteLine("\tItem 2: " + item2 + "\n\tPrice: " + price2.ToString("C"));
+            Console.WriteLine("\t===========================");
+            Console.WriteLine("\tTotal: " + total.ToString("C"));
+            Console.WriteLine("\tDiscount (20%): " + discount.ToString("C"));
+            Console.WriteLine("\tSubtotal: " + alteredTotal.ToString("C"));
+            Console.WriteLine("\tTax (13%): " + taxAmount.ToString("C"));
+            Console.WriteLine("\t===========================");
+            Console.WriteLine("\tTotal Owned: " + finalPrice.ToString("C"));
 
         }
 
         static void Main(string[] args)
         {
-            
-    }
+            Console.Title = "Topic 4 - Assignment (User Input)";    
+
+            Part1();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\n------------------------------\n");
+
+            Part2();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\n------------------------------\n");
+
+            Part3();
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\n------------------------------\n");
+
+            Part4();
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("\n------------------------------\n");
+
+            Part5();
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("\n------------------------------\n");
+        }
     }
 }
